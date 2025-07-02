@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { MessageCircle, Smartphone, Monitor, FileText, Shield, ChevronRight, Phone } from 'lucide-react';
 import GoogleSignIn from './GoogleSignIn.jsx';
+import { addUser } from '../api.js'
 
 const LoginPage = ({ onLogin }) => {
   const [showPhoneLogin, setShowPhoneLogin] = useState(false);
@@ -51,6 +52,8 @@ const LoginPage = ({ onLogin }) => {
     console.error('Google login failed:', error);
     alert('Google Sign-In failed. Please try again.');
   };
+  
+  addUser(handleGoogleSuccess,handlePhoneLogin);
 
   const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://chatflow.demo.login.${Date.now()}`;
 

@@ -12,7 +12,7 @@ const GoogleSignIn = ({ onSuccess, onError }) => {
     script.onload = () => {
       if (window.google) {
         window.google.accounts.id.initialize({
-          client_id: 'YOUR_GOOGLE_CLIENT_ID', // Replace with your actual Google Client ID
+          client_id: '867560531415-cjhpfel057r1ji9ubvkpgj5dlnp7v0s1.apps.googleusercontent.com', // Replace with your actual Google Client ID
           callback: handleCredentialResponse,
           auto_select: false,
           cancel_on_tap_outside: true,

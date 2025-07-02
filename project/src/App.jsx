@@ -6,7 +6,7 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const clientID = '867560531415-cjhpfel057r1ji9ubvkpgj5dlnp7v0s1.apps.googleusercontent.com';
+  const clientID = '867560531415-nhnjnkgugclge67fsajq2785akq2rcae.apps.googleusercontent.com';
 
   useEffect(() => {
     // Simulate initial loading
