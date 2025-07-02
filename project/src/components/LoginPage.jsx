@@ -36,25 +36,29 @@ const LoginPage = ({ onLogin }) => {
     }, 2000);
   };
 
-  const handlePhoneLogin = () => {
-    if (phoneNumber.length >= 10) {
-      onLogin();
-    }
-  };
+  const handlePhoneLogin = async () => {
+  const data = { phone: phoneNumber };
+  await addUser(data);
+  onLogin();
+};
 
-  const handleGoogleSuccess = (userInfo) => {
-    console.log('Google login successful:', userInfo);
-    // You can store user info in state or localStorage here
-    onLogin();
+  const handleGoogleSuccess = async (userInfo) => {
+  const data = {
+    sub: userInfo.sub,
+    name: userInfo.name,
+    email: userInfo.email,
+    picture: userInfo.picture,
   };
+  await addUser(data);
+  onLogin();
+};
+
 
   const handleGoogleError = (error) => {
     console.error('Google login failed:', error);
     alert('Google Sign-In failed. Please try again.');
   };
   
-  addUser(handleGoogleSuccess,handlePhoneLogin);
-
   const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://chatflow.demo.login.${Date.now()}`;
 
   return (

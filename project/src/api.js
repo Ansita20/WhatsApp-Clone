@@ -1,8 +1,8 @@
 import axios from 'axios';
-const url = 'http://http://localhost:8000';
+const url = 'http://localhost:8000';
 export const addUser = async (data) => {
     try{
-      await axios.post(`${url}`/add, data)
+      await axios.post(`${url}/add`, data)
     }catch(error){
       console.log('Error whileaddUser API ', error.message);
     }
